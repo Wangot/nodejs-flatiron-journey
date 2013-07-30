@@ -6,7 +6,8 @@
     "union": "0.3.5",
     "flatiron": "0.3.8",
     "resourceful": "0.3.3",
-    "restful": "0.4.4"
+    "restful": "0.4.4",
+    "st": "*"
   },
   "devDependencies": {
     "api-easy": "0.3.2",

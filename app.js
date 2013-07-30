@@ -15,6 +15,8 @@ app.use(flatiron.plugins.http, {
   after: []
 });
 
+app.use(flatiron.plugins.static, { root: __dirname });
+
 function test1(req, res) {
     if(req.url != "/") console.log("We can put the validation here...");
   res.emit('next');
@@ -43,6 +45,6 @@ app.on('init', function () {
 
 app.start(8080, function(){
   console.log(app.router.routes)
-  console.log(' > http server started on port 8000');
-  console.log(' > visit: http://localhost:8000/ ');
+  console.log(' > http server started on port 8080');
+  console.log(' > visit: http://localhost:8080/ ');
 });
