@@ -1,8 +1,7 @@
-var flatiron = require('flatiron'),
-    path = require('path'),
-    restful     = require('restful'),
-    resourceful = require('resourceful'),
-    app = flatiron.app;
+var flatiron = require('flatiron');
+var path = require('path');
+var restful     = require('restful');
+var app = flatiron.app;
 
 var app = module.exports = flatiron.app;
 app.resources = app.resources || {};
@@ -22,12 +21,7 @@ function test1(req, res) {
   res.emit('next');
 }
 
-var Creature = app.resources.Creature = resourceful.define('creature', function () {
-  this.restful = true;
-  //this.use('memory');
-  this.string('type');
-  this.string('description');
-});
+var Creature = app.resources.Creature = require('./app/model/Creature.js')
 
 app.use(restful);
 
@@ -39,6 +33,7 @@ app.on('init', function () {
   
   database.database = database.database || 'test';
 
+  var resourceful = require('resourceful');
   resourceful.use('couchdb', database);
   resourceful.autoMigrate = true;
 });
