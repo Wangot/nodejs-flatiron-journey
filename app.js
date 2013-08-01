@@ -23,7 +23,33 @@ function test1(req, res) {
 
 var Creature = app.resources.Creature = require('./app/model/Creature.js')
 
+
+app.router.get('/creature', function () {
+  this.res.writeHead(200, { 'Content-Type': 'text/html' });
+  this.res.end("Test creature");
+  console.log("ending");
+});
+
 app.use(restful);
+
+app.router.get('/test', function () {
+  this.res.writeHead(200, { 'Content-Type': 'text/html' });
+  this.res.end("Test get");
+  console.log("ending");
+});
+
+app.router.put('/test', function () {
+  this.res.writeHead(200, { 'Content-Type': 'text/html' });
+  this.res.end("Test put");
+  console.log("ending");
+});
+
+app.router.post('/test', function () {
+  this.res.writeHead(200, { 'Content-Type': 'text/html' });
+  this.res.end("Test post");
+  console.log("ending");
+});
+
 
 app.on('init', function () {
   var database = app.config.get('database') || {
